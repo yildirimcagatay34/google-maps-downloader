@@ -3,18 +3,18 @@ import os
 from PIL import Image
 import math
 
-def download_tile(x, y, z):
+def download_tile(x, y, z): # Downloads a tile for the given x and y coordinates and zoom level. It is pretty slow as it downloads one tile at a time
     url = "https://khms.google.com/kh/v=908?x=" + str(x) + "&y=" + str(y) + "&z=" + str(z)
     imagefile = requests.get(url)
     try:
         os.mkdir("./tiles/")
     except:
-        q = 0
+        q = 0 # Do nothing if the folder exists
     filename = './tiles/tile_' + str(x) + '_' + str(y) + '_' + str(z) + '.jpeg'
     open(filename, 'wb').write(imagefile.content)
     print("Downloading:", filename)
 
-def dl_all_tiles_from_zoom(zoom, stitch=False):
+def dl_all_tiles_from_zoom(zoom, stitch=False): # Unused, but might add it later
     xtile = 0
     ytile = 0
     max_tile = 2**zoom-1
@@ -26,7 +26,7 @@ def dl_all_tiles_from_zoom(zoom, stitch=False):
         xtile += 1
     print("Finished downloading files.")
 
-def stitch_tiles(x, y, size, z):
+def stitch_tiles(x, y, size, z): # Stitches tiles into one large image
     width = size * 256
     height = size * 256
     max_x = x + size - 1
@@ -51,7 +51,7 @@ def stitch_tiles(x, y, size, z):
     output.save('stitched.jpg')
     print("Done stitching images.")
 
-def dl_square(x, y, z, size):
+def dl_square(x, y, z, size): # Downloads a square of tiles, might add other shapes later
     max_x = x + size - 1
     max_y = y + size - 1
     y2 = y
@@ -62,7 +62,7 @@ def dl_square(x, y, z, size):
         y = y2
         x += 1
 
-def latlong_to_xy(lat, lon, zoom):
+def latlong_to_xy(lat, lon, zoom): # Converts latitude and longitude to tile coordinates
     lonRad = math.radians(lon)
     latRad = math.radians(lat)
     columnIndex = lonRad
