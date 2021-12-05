@@ -10,4 +10,5 @@ The tiles will be in the ***./tiles*** directory and the stitched image will be 
 ![unknown](https://user-images.githubusercontent.com/69543802/144744628-c559a8b6-bdda-4752-a43c-b9f073dff0f1.png)
 
 *Result:*
+
 ![stitched](https://user-images.githubusercontent.com/69543802/144744601-55391270-3f37-4741-802e-53badd2cc914.jpg)
