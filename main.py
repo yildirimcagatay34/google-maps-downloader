@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import requests
 import os
 from PIL import Image
@@ -83,6 +82,3 @@ size = int(size_deg * 2 ** zoom / 360)
 coords = latlong_to_xy(lat, longi, zoom)
 dl_square(coords[0], coords[1], zoom, size)
 stitch_tiles(coords[0], coords[1], size, zoom)
-=======
-
->>>>>>> 0c165931ac3a1a621d3e086774efc362c330be9a
